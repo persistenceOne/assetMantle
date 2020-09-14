@@ -1,6 +1,30 @@
+<<<<<<< HEAD
 node/__debug_bin/
 client/__debug_bin/
 vendor/
 .vscode/
 .idea/
 target/
+=======
+.vs/
+
+Packages/
+
+**/bin/*
+**/obj/*
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+>>>>>>> 2d3a197a7b12a7339545f7f46ef715e1b003b231
