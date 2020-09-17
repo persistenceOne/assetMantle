@@ -1,7 +1,7 @@
 {
   "name": "autom8able-mochajs-starter",
   "version": "1.0.0",
-  "description": "A MochaJS starter package from https://autom8able.com",
+  "description": "Test Cases for Asset Mantle",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha --timeout 100000",
@@ -9,8 +9,8 @@
     "open:report": "open mochawesome-report/mochawesome.html"
   },
   "keywords": [],
-  "author": "Mitch Allen (mitchallen.com)",
-  "license": "MIT",
+  "author": "PersistenceOne",
+  "license": "PersistenceOne",
   "devDependencies": {
     "have": "^0.4.0",
     "mocha": "^7.2.0",

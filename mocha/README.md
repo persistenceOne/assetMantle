@@ -1,18 +1,32 @@
-autom8able-mochajs-starter
-==
-A MochaJS starter package from https://autom8able.com
---
+## Pre-requisites
+
+```
+Install npm and nodeJS
+cd ~
+curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install nodejs
+
+To check which version of Node.js you have installed after these initial steps, type:
+node -v
+
+For more information, visit https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04.
+```
+
+* * *
 
 ## Installation
 
 ```
-git clone https://github.com/mitchallen/autom8able-mochajs-starter.git
 
-cd autom8able-mochajs-starter/
+cd /persistenceOne/assetMantle/mocha
 
 npm install
 
-npm test
+npm run test:awesome
+
+NOTE: If any error comes which says: Error: Cannot find module 'xxx'
+then run "npm install xxx --save"
 ```
 
 * * *
@@ -25,19 +39,17 @@ For more information, visit https://autom8able.com.
 
 ## Testing
 
-To test, go to the root folder and type (sans __$__):
+To test, go to the  go/src/github.com/persistenceOne/assetMantle/mocha folder and type :
 
-    $ npm test
+    $ npm run test:awesome
    
 * * *
  
-## Repo(s)
+## Report
 
-* [github.com/mitchallen/autom8able-mochajs-starter.git](https://github.com/mitchallen/autom8able-mochajs-starter.git)
+[mochawesome] Report JSON saved to go/src/github.com/persistenceOne/assetMantle/mocha/mochawesome-report/mochawesome.json
+
+[mochawesome] Report HTML saved to go/src/github.com/persistenceOne/assetMantle/mocha/mochawesome-report/mochawesome.html
+
 
 * * *
-
-## Contributing
-
-In lieu of a formal style guide, take care to maintain the existing coding style.
-Add unit tests for any new or changed functionality. Lint and test your code.
