@@ -380,9 +380,7 @@ describe('Nub Tx', async () => {
       }
     }, function (err, response) {
       if (err) {
-        console.log("err: " + err)
-        console.log("response: " + response)
-        console.log("failed to send txHash query")
+        //do nothing
       } else {
         expect(res.body.raw_log).to.not.contain('failed')
         expect(res.body).to.not.contain('error')
@@ -478,13 +476,10 @@ describe('Identity', async () => {
           callbackretry('failed')
         } else {
           //continue
-          callbackretry(null, 'true')
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -558,9 +553,7 @@ describe('Identity', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -647,9 +640,7 @@ describe('Identity', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -736,9 +727,7 @@ describe('Identity', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -775,11 +764,8 @@ describe('Identity', async () => {
         if (value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString == config.nubID) {
           data.clasificationID = value.value.id.value.classificationID.value.idString
           data.hashID = value.value.id.value.hashID.value.idString
-
         }
-
       });
-
     });
 
     it('Provision an unprovision Key: ', async () => {
@@ -824,9 +810,7 @@ describe('Identity', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -918,9 +902,7 @@ describe('Identity', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -994,9 +976,7 @@ describe('Identity', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+         //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1088,9 +1068,7 @@ describe('Identity', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1164,9 +1142,7 @@ describe('Identity', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1267,9 +1243,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+         //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1342,9 +1316,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1446,9 +1418,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1556,9 +1526,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1648,9 +1616,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+         //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1723,9 +1689,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1785,9 +1749,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1840,9 +1802,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -1932,9 +1892,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2005,9 +1963,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2097,9 +2053,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2172,9 +2126,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2242,9 +2194,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+         //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2334,9 +2284,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2407,9 +2355,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2511,9 +2457,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2606,9 +2550,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2660,9 +2602,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2754,9 +2694,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2829,9 +2767,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2891,9 +2827,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2944,9 +2878,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -2991,9 +2923,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3047,9 +2977,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3101,9 +3029,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3193,9 +3119,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3267,9 +3191,7 @@ describe('Assets', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3373,7 +3295,6 @@ describe('Splits', async () => {
         }
       }
 
-      console.log("Send split of an asset obj : " + JSON.stringify(obj))
       var err, res = await chai.request(server)
         .post(config.sendSplitPath)
         .send(obj)
@@ -3401,9 +3322,7 @@ describe('Splits', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3473,7 +3392,6 @@ describe('Splits', async () => {
         }
       }
 
-      console.log("Send split of an coin obj : " + JSON.stringify(obj))
       var err, res = await chai.request(server)
         .post(config.unwrapCoinPath)
         .send(obj)
@@ -3501,9 +3419,7 @@ describe('Splits', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3560,8 +3476,6 @@ describe('Splits', async () => {
         .post(config.wrapCoinPath)
         .send(obj)
 
-      console.log("wrap a coing obj: " + JSON.stringify(obj))
-
       res.should.have.status(200);
       res.body.should.be.a('object');
       expect(res.body.txhash).to.not.equal(null)
@@ -3585,9 +3499,7 @@ describe('Splits', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3680,13 +3592,11 @@ describe('Splits', async () => {
           "split": config.splitval
         }
       }
-      console.log("Send split of an coin obj : " + JSON.stringify(obj))
-
+     
       var err, res = await chai.request(server)
         .post(config.sendSplitPath)
         .send(obj)
-
-      console.log("send split of a coin obj: " + JSON.stringify(obj))
+    
       res.should.have.status(200);
       res.body.should.be.a('object');
       expect(res.body.txhash).to.not.equal(null)
@@ -3710,9 +3620,7 @@ describe('Splits', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3810,9 +3718,7 @@ describe('Metas', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3885,9 +3791,7 @@ describe('Metas', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+         //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -3947,9 +3851,7 @@ describe('Metas', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+         //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4004,9 +3906,7 @@ describe('Metas', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4061,9 +3961,7 @@ describe('Metas', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4118,9 +4016,7 @@ describe('Metas', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+         //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4175,9 +4071,7 @@ describe('Metas', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+         //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4232,9 +4126,7 @@ describe('Metas', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4304,8 +4196,6 @@ describe('Orders', async () => {
         }
       }
 
-      console.log("Define Order obj:" + JSON.stringify(obj))
-
       var err, res = await chai.request(server)
         .post(config.defineOrderPath)
         .send(obj)
@@ -4332,9 +4222,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4396,7 +4284,6 @@ describe('Orders', async () => {
         }
       }
 
-      console.log("Define Order obj:" + JSON.stringify(obj))
       var err, res = await chai.request(server)
         .post(config.makeOrderPath)
         .send(obj)
@@ -4424,9 +4311,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4481,7 +4366,6 @@ describe('Orders', async () => {
       var list = res.body.result.value.orders.value.list
       list.forEach(function (value) {
 
-        console.log("query orders: " + value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString)
         if (value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString == "ORDER_IMMUTABLE_META2") {
           data.oclassificationID = value.value.id.value.classificationID.value.idString
           data.omakerownableid = value.value.id.value.makerOwnableID.value.idString
@@ -4509,7 +4393,6 @@ describe('Orders', async () => {
         }
       }
 
-      console.log("Define Order obj:" + JSON.stringify(obj))
       var err, res = await chai.request(server)
         .post(config.takeOrderPath)
         .send(obj)
@@ -4537,9 +4420,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4605,8 +4486,6 @@ describe('Orders', async () => {
         }
       }
 
-      console.log("Define Order obj:" + JSON.stringify(obj))
-
       var err, res = await chai.request(server)
         .post(config.defineOrderPath)
         .send(obj)
@@ -4633,9 +4512,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4663,16 +4540,10 @@ describe('Orders', async () => {
       var err, res = await chai.request(server)
         .get(config.qAsset)
 
-      console.log("assets query: " + JSON.stringify(res.body))
-
       var list = res.body.result.value.assets.value.list
       list.forEach(function (value) {
 
-        console.log("assets: " + value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString)
-
         if (value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString == "AssetD") {
-          console.log("classificationID: " + value.value.id.value.classificationID.value.idString)
-          console.log("hashID: " + value.value.id.value.hashID.value.idString)
           data.aclasificationID = value.value.id.value.classificationID.value.idString
           data.ahashID = value.value.id.value.hashID.value.idString
         }
@@ -4703,7 +4574,6 @@ describe('Orders', async () => {
         }
       }
 
-      console.log("Define Order obj:" + JSON.stringify(obj))
       var err, res = await chai.request(server)
         .post(config.makeOrderPath)
         .send(obj)
@@ -4731,9 +4601,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4746,12 +4614,8 @@ describe('Orders', async () => {
       var err, res = await chai.request(server)
         .get(config.qOrder)
 
-      console.log("res of query orders: " + JSON.stringify(res))
-
       var list = res.body.result.value.orders.value.list
       list.forEach(function (value) {
-
-        console.log("orders: " + value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString)
 
         if (value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString == "ORDER_IMMUTABLE_META3") {
           data.oclassificationID = value.value.id.value.classificationID.value.idString
@@ -4779,7 +4643,6 @@ describe('Orders', async () => {
         }
       }
 
-      console.log("cancel orders obj: " + JSON.stringify(obj))
       var err, res = await chai.request(server)
         .post(config.cancelOrderPath)
         .send(obj)
@@ -4807,9 +4670,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4896,9 +4757,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -4940,8 +4799,6 @@ describe('Orders', async () => {
         .post(config.wrapCoinPath)
         .send(obj)
 
-      console.log("wrap a coing obj: " + JSON.stringify(obj))
-
       res.should.have.status(200);
       res.body.should.be.a('object');
       expect(res.body.txhash).to.not.equal(null)
@@ -4965,9 +4822,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+         //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -5027,9 +4882,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -5139,9 +4992,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -5233,9 +5084,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -5325,9 +5174,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -5340,11 +5187,8 @@ describe('Orders', async () => {
       var err, res = await chai.request(server)
         .get(config.qOrder)
 
-      console.log("res of query orders: " + JSON.stringify(res))
       var list = res.body.result.value.orders.value.list
       list.forEach(function (value) {
-
-        console.log("orders: " + value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString)
 
         if (value.value.immutables.value.properties.value.propertyList[0].value.id.value.idString == "ORDER_IMMUTABLE_META5") {
           data.oclassificationID = value.value.id.value.classificationID.value.idString
@@ -5372,7 +5216,6 @@ describe('Orders', async () => {
         }
       }
 
-      console.log("cancel orders obj: " + JSON.stringify(obj))
       var err, res = await chai.request(server)
         .post(config.cancelOrderPath)
         .send(obj)
@@ -5400,9 +5243,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -5507,9 +5348,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -5599,9 +5438,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -5760,9 +5597,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -5849,9 +5684,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -5940,9 +5773,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -6066,9 +5897,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -6141,9 +5970,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -6211,9 +6038,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -6288,9 +6113,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -6414,9 +6237,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -6489,9 +6310,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -6559,9 +6378,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -6636,9 +6453,7 @@ describe('Orders', async () => {
         }
       }, function (err, response) {
         if (err) {
-          console.log("err: " + err)
-          console.log("response: " + response)
-          console.log("failed to send txHash query")
+          //do nothing
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
@@ -6741,14 +6556,9 @@ describe('Maintainer', async () => {
         }
       }
 
-      console.log("deputize obj: " + JSON.stringify(obj))
-
-
       var err, res = await chai.request(server)
         .post(config.deputizePath)
         .send(obj)
-
-
 
       res.should.have.status(200);
       res.body.should.be.a('object');
@@ -6776,6 +6586,8 @@ describe('Maintainer', async () => {
           console.log("err: " + err)
           console.log("response: " + response)
           console.log("failed to send txHash query")
+          expect(res.body.raw_log).to.not.contain('failed')
+          expect(res.body).to.not.contain('error')
         } else {
           expect(res.body.raw_log).to.not.contain('failed')
           expect(res.body).to.not.contain('error')
