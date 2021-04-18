@@ -10,7 +10,7 @@ ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=assetMantle \
 		  -X github.com/cosmos/cosmos-sdk/version.ClientName=assetClient \
 		  -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
 		  -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
-		  -X github.com/cosmos/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)
+		  -X github.com/cosmos/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep) \
 
 BUILD_FLAGS += -ldflags "${ldflags}"
 
@@ -19,12 +19,12 @@ GOBIN = $(shell go env GOPATH)/bin
 # Docker variables
 DOCKER := $(shell which docker)
 
-DOCKER_IMAGE_NAME = persistenceone/persistencecore
+DOCKER_IMAGE_NAME = persistenceone/assetmantle
 DOCKER_TAG_NAME = latest
-DOCKER_CONTAINER_NAME = persistence-core-container
+DOCKER_CONTAINER_NAME = assetmantle-container
 DOCKER_CMD ?= "/bin/sh"
 
-.PHONY: all install build verify
+.PHONY: all install build verify docker-run docker-interactive
 
 all: verify build
 
@@ -74,7 +74,7 @@ docker-run:
 	${DOCKER} run ${DOCKER_OPTS} --name=${DOCKER_CONTAINER_NAME} ${DOCKER_IMAGE_NAME}:${DOCKER_TAG_NAME} ${DOCKER_CMD}
 
 docker-interactive:
-	${MAKE} docker-run DOCKER_CMD=/bin/sh DOCKER_OPTS=--rm --it
+	${MAKE} docker-run DOCKER_CMD=/bin/sh DOCKER_OPTS="--rm -it"
 
 docker-clean-container:
 	-${DOCKER} stop ${DOCKER_CONTAINER_NAME}
