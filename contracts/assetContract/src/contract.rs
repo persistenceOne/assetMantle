@@ -1,10 +1,12 @@
+#![allow(non_snake_case)]
+
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
 use cosmwasm_std::{
-    from_slice, generic_err, log, not_found, to_binary, to_vec, unauthorized, AllBalanceResponse,
-    Api, BankMsg, Binary, CanonicalAddr, Env, Extern, HandleResponse, HumanAddr, InitResponse,
-    MigrateResponse, Querier, QueryResponse, StdResult, Storage, Coin, CosmosMsg,
+    from_slice, log, not_found, to_vec, unauthorized,
+    Api, CanonicalAddr, CosmosMsg, Env, Extern, HandleResponse, HumanAddr,
+    InitResponse, MigrateResponse, Querier, QueryResponse, StdResult, Storage,
 };
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -27,8 +29,7 @@ pub struct MigrateMsg {
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub enum QueryMsg {
-}
+pub enum QueryMsg {}
 
 pub fn migrate<S: Storage, A: Api, Q: Querier>(
     deps: &mut Extern<S, A, Q>,
@@ -46,12 +47,10 @@ pub fn migrate<S: Storage, A: Api, Q: Querier>(
 }
 
 pub fn query<S: Storage, A: Api, Q: Querier>(
-    deps: &Extern<S, A, Q>,
+    _deps: &Extern<S, A, Q>,
     msg: QueryMsg,
 ) -> StdResult<QueryResponse> {
-    match msg {
-
-    }
+    match msg {}
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -66,10 +65,7 @@ pub struct State {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum HandleMsg {
-    AssetMint {
-        properties: String
-    },
-
+    AssetMint { properties: String },
 }
 
 pub static CONFIG_KEY: &[u8] = b"config";
@@ -102,7 +98,7 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
     msg: HandleMsg,
 ) -> StdResult<HandleResponse<PersistenceSDK>> {
     match msg {
-        HandleMsg::AssetMint { properties} => do_asset_mint(deps, env, properties),
+        HandleMsg::AssetMint { properties } => do_asset_mint(deps, env, properties),
     }
 }
 
@@ -113,7 +109,7 @@ pub struct AssetMintRaw {
     chainID: String,
     maintainersID: String,
     classificationID: String,
-    properties: String,
+    asset_properties: String,
     lock: i64,
     burn: i64,
 }
@@ -125,16 +121,13 @@ pub struct PersistenceSDK {
     raw: AssetMintRaw,
 }
 
-
-
 // {"mint":{"msgtype":"assets/mint","raw":""}}
 // this is a helper to be able to return these as CosmosMsg easier
-impl Into<CosmosMsg<PersistenceSDK>> for PersistenceSDK {
-    fn into(self) -> CosmosMsg<PersistenceSDK> {
-        CosmosMsg::Custom(self)
+impl From<PersistenceSDK> for CosmosMsg<PersistenceSDK> {
+    fn from(p : PersistenceSDK) -> CosmosMsg<PersistenceSDK> {
+        CosmosMsg::Custom(p)
     }
 }
-
 
 fn do_asset_mint<S: Storage, A: Api, Q: Querier>(
     deps: &mut Extern<S, A, Q>,
@@ -156,7 +149,7 @@ fn do_asset_mint<S: Storage, A: Api, Q: Querier>(
             chainID: "".to_owned(),
             maintainersID: "".to_owned(),
             classificationID: "".to_owned(),
-            properties: properties,
+            asset_properties: properties,
             lock: -1,
             burn: -1,
         };
@@ -167,7 +160,7 @@ fn do_asset_mint<S: Storage, A: Api, Q: Querier>(
                 msgtype: "assets/mint".to_string(),
                 raw: mintMsg,
             }
-                .into()],
+            .into()],
             data: None,
         };
         Ok(res)

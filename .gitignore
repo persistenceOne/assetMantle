@@ -7,3 +7,4 @@ vendor/
 .mocha/node_modules
 target/
 kafka_*
+.DS_Store
