@@ -1,8 +1,8 @@
 #![allow(non_snake_case)]
 
 use cosmwasm_std::{
-    attr, from_slice, to_vec, Addr, CosmosMsg, Deps, DepsMut, Env, MessageInfo, Response, StdError,
-    Storage,
+    attr, from_slice, to_vec, Addr, Binary, CosmosMsg, Deps, DepsMut, Env, MessageInfo, Response,
+    StdError, Storage,
 };
 use cosmwasm_storage::{singleton, singleton_read, ReadonlySingleton, Singleton};
 use schemars::JsonSchema;
@@ -57,6 +57,33 @@ pub enum ContractError {
     Unauthorized {},
 }
 
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub struct AssetMintRaw {
+    from: String,
+    chainID: String,
+    maintainersID: String,
+    classificationID: String,
+    asset_properties: String,
+    lock: i64,
+    burn: i64,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub struct PersistenceSDK {
+    msgtype: String,
+    raw: AssetMintRaw,
+}
+
+// {"mint":{"msgtype":"assets/mint","raw":""}}
+// this is a helper to be able to return these as CosmosMsg easier
+impl From<PersistenceSDK> for CosmosMsg<PersistenceSDK> {
+    fn from(p: PersistenceSDK) -> CosmosMsg<PersistenceSDK> {
+        CosmosMsg::Custom(p)
+    }
+}
+
 pub fn config(storage: &mut dyn Storage) -> Singleton<State> {
     singleton(storage, CONFIG_KEY)
 }
@@ -100,7 +127,7 @@ pub fn migrate(deps: DepsMut, env: Env, msg: MigrateMsg) -> Result<Response, Con
     Ok(Response::default())
 }
 
-pub fn query(deps: Deps, env: Env, msg: QueryMsg) -> Result<Response, ContractError> {
+pub fn query(_deps: Deps, _env: Env, msg: QueryMsg) -> Result<Binary, ContractError> {
     match msg {}
 }
 
@@ -112,33 +139,6 @@ pub fn execute(
 ) -> Result<Response<PersistenceSDK>, ContractError> {
     match msg {
         ExecuteMsg::AssetMint { properties } => do_asset_mint(deps, env, properties, info),
-    }
-}
-
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
-pub struct AssetMintRaw {
-    from: String,
-    chainID: String,
-    maintainersID: String,
-    classificationID: String,
-    asset_properties: String,
-    lock: i64,
-    burn: i64,
-}
-
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
-pub struct PersistenceSDK {
-    msgtype: String,
-    raw: AssetMintRaw,
-}
-
-// {"mint":{"msgtype":"assets/mint","raw":""}}
-// this is a helper to be able to return these as CosmosMsg easier
-impl From<PersistenceSDK> for CosmosMsg<PersistenceSDK> {
-    fn from(p: PersistenceSDK) -> CosmosMsg<PersistenceSDK> {
-        CosmosMsg::Custom(p)
     }
 }
 
