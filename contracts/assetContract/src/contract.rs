@@ -1,12 +1,13 @@
 #![allow(non_snake_case)]
 
-use serde::{Deserialize, Serialize};
-use thiserror::Error;
 use cosmwasm_std::{
-    attr, to_vec, from_slice, Addr, CosmosMsg, Deps, DepsMut, Env, MessageInfo, Response, Storage, StdError,
+    attr, from_slice, to_vec, Addr, CosmosMsg, Deps, DepsMut, Env, MessageInfo, Response, StdError,
+    Storage,
 };
 use cosmwasm_storage::{singleton, singleton_read, ReadonlySingleton, Singleton};
 use schemars::JsonSchema;
+use serde::{Deserialize, Serialize};
+use thiserror::Error;
 
 pub static CONFIG_KEY: &[u8] = b"config";
 
@@ -16,7 +17,6 @@ pub struct State {
     pub recipient: Addr,
     pub source: Addr,
 }
-
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct InstantiateMsg {
@@ -40,7 +40,6 @@ pub struct MigrateMsg {
 #[serde(rename_all = "snake_case")]
 pub enum QueryMsg {}
 
-
 // failure modes to help test wasmd, based on this comment
 // https://github.com/cosmwasm/wasmd/issues/8#issuecomment-576146751
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -56,7 +55,6 @@ pub enum ContractError {
 
     #[error("Unauthorized")]
     Unauthorized {},
-
 }
 
 pub fn config(storage: &mut dyn Storage) -> Singleton<State> {
@@ -90,12 +88,7 @@ pub fn instantiate(
     Ok(resp)
 }
 
-
-pub fn migrate(
-    deps: DepsMut,
-    env: Env,
-    msg: MigrateMsg,
-) -> Result<Response, ContractError> {
+pub fn migrate(deps: DepsMut, env: Env, msg: MigrateMsg) -> Result<Response, ContractError> {
     let data = deps
         .storage
         .get(CONFIG_KEY)
@@ -105,14 +98,9 @@ pub fn migrate(
     deps.storage.set(CONFIG_KEY, &to_vec(&config)?);
 
     Ok(Response::default())
-
 }
 
-pub fn query(
-    deps: Deps,
-    env: Env,
-    msg: QueryMsg,
-) -> Result<Response, ContractError> {
+pub fn query(deps: Deps, env: Env, msg: QueryMsg) -> Result<Response, ContractError> {
     match msg {}
 }
 
@@ -149,7 +137,7 @@ pub struct PersistenceSDK {
 // {"mint":{"msgtype":"assets/mint","raw":""}}
 // this is a helper to be able to return these as CosmosMsg easier
 impl From<PersistenceSDK> for CosmosMsg<PersistenceSDK> {
-    fn from(p : PersistenceSDK) -> CosmosMsg<PersistenceSDK> {
+    fn from(p: PersistenceSDK) -> CosmosMsg<PersistenceSDK> {
         CosmosMsg::Custom(p)
     }
 }
@@ -161,33 +149,38 @@ fn do_asset_mint(
     info: MessageInfo,
 ) -> Result<Response<PersistenceSDK>, ContractError> {
     let state = config_read(deps.storage).load()?;
-        if info.sender == state.arbiter {
-            let from_addr = deps.api.addr_validate(&env.contract.address.to_string())?;
-    
-            // can add all the parameters as input params
-            let mintMsg = AssetMintRaw {
-                from: deps.api.addr_validate(&info.sender.to_string())?.to_string(),
-                chainID: "".to_owned(),
-                maintainersID: "".to_owned(),
-                classificationID: "".to_owned(),
-                asset_properties: properties,
-                lock: -1,
-                burn: -1,
-            };
-    
-            let res = Response {
-                submessages: vec![],
-                messages: vec![PersistenceSDK {
-                    msgtype: "assets/mint".to_string(),
-                    raw: mintMsg,
-                }
-                .into()],
-                attributes: vec![attr("action", "asset_mint"), attr("destination", &from_addr)],
-                data: None,
-            };
-            Ok(res)
-        } else {
-            Err(ContractError::Unauthorized {})
-        }
-    
+    if info.sender == state.arbiter {
+        let from_addr = deps.api.addr_validate(&env.contract.address.to_string())?;
+
+        // can add all the parameters as input params
+        let mintMsg = AssetMintRaw {
+            from: deps
+                .api
+                .addr_validate(&info.sender.to_string())?
+                .to_string(),
+            chainID: "".to_owned(),
+            maintainersID: "".to_owned(),
+            classificationID: "".to_owned(),
+            asset_properties: properties,
+            lock: -1,
+            burn: -1,
+        };
+
+        let res = Response {
+            submessages: vec![],
+            messages: vec![PersistenceSDK {
+                msgtype: "assets/mint".to_string(),
+                raw: mintMsg,
+            }
+            .into()],
+            attributes: vec![
+                attr("action", "asset_mint"),
+                attr("destination", &from_addr),
+            ],
+            data: None,
+        };
+        Ok(res)
+    } else {
+        Err(ContractError::Unauthorized {})
+    }
 }
